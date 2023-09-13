@@ -1,0 +1,6 @@
+import openpyxl
+workbook = openpyxl.load_workbook('exp.xlsx')
+worksheet = workbook['Sheet1'] 
+cell_value = worksheet.cell(row=1, column=1).value
+worksheet.cell(row=1, column=2, value='rohith')
+workbook.save('exp.xlsx')
