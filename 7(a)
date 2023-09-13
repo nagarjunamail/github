@@ -1,0 +1,32 @@
+import math
+class Shape:
+def __init__(self):
+pass
+def calculate_area(self):
+pass
+class Triangle(Shape):
+def __init__(self, base, height):
+super().__init__()
+self.base = base
+self.height = height
+def calculate_area(self):
+return 0.5 * self.base * self.height
+class Circle(Shape):
+def __init__(self, radius):
+super().__init__()
+self.radius = radius
+def calculate_area(self):
+return math.pi * self.radius**2
+class Rectangle(Shape):
+def __init__(self, length, width):
+super().__init__()
+self.length = length
+self.width = width
+def calculate_area(self):
+return self.length * self.width
+triangle = Triangle(5, 7)
+circle = Circle(3)
+rectangle = Rectangle(4, 6)
+print("Area of Triangle:", triangle.calculate_area())
+print("Area of Circle:", circle.calculate_area())
+print("Area of Rectangle:", rectangle.calculate_area())
