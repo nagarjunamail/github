@@ -1,0 +1,16 @@
+try:
+file_name = input("Enter the file name (e.g., myfile.txt): ")
+num_lines = int(input("Enter the number of lines to display: "))
+with open(file_name, 'r') as file:
+lines = file.readlines()
+if num_lines <= 0:
+print("Please enter a positive number of lines to display.")
+else:
+for line in lines[:num_lines]:
+print(line.strip())
+except FileNotFoundError:
+print("File not found. Please make sure the file exists in the specified path.")
+except ValueError:
+print("Invalid input. Please enter a valid number of lines to display.")
+except Exception as e:
+print(f"An error occurred: {str(e)}"
