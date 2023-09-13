@@ -1,0 +1,9 @@
+from PyPDF2 import PdfFileMerger
+merger = PdfFileMerger()
+merger.append(open('file1.pdf', 'rb'))
+merger.append(open('file2.pdf', 'rb'))
+merger.addBookmark('Page 1', 0)
+merger.addBookmark('Page 2', 1)
+merger.write(open('output.pdf', 'wb'))
+merger.close()
+
