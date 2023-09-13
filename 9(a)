@@ -1,0 +1,22 @@
+import requests
+import os
+folder_path = 'xkcd_comics'
+os.makedirs(folder_path, exist_ok=True)
+response = requests.get('https://xkcd.com/info.0.json')
+latest_comic_number = response.json()['num']
+for comic_number in range(1, 6 + 1):
+response = requests.get(f'https://xkcd.com/{comic_number}/info.0.json')
+if response.status_code == 200: # Check if the request was successful
+comic_info = response.json()
+image_url = comic_info['img']
+response = requests.get(image_url)
+if response.status_code == 200: # Check if the image request was successful
+file_path = os.path.join(folder_path, f'comic{comic_number}.png')
+with open(file_path, 'wb') as file:
+file.write(response.content)
+print(f"Downloaded comic {comic_number}.")
+else:
+print(f"Failed to download comic {comic_number}.")
+else:
+print(f"Failed to fetch comic info for comic {comic_number}.")
+print("All XKCD comics downloaded successfully!")
