@@ -1,0 +1,27 @@
+class Employee:
+def __init__(self, name, employee_id, department, salary):
+self.name = name
+self.employee_id = employee_id
+self.department = department
+self.salary = salary
+def update_salary(self, new_salary, department):
+if self.department == department:
+self.salary = new_salary
+def __str__(self):
+return f"Name: {self.name}\nEmployee_ID: {self.employee_id}\nDepartment: 
+{self.department}\nSalary: {self.salary}"
+employee1 = Employee("John Doe", 1, "Finance", 5000)
+employee2 = Employee("Jane Smith", 2, "Engineering", 6000)
+employee3 = Employee("Tom Wilson", 3, "Engineering", 5500)
+print("Before salary update:")
+print(employee1)
+print(employee2)
+print(employee3)
+new_salary = 6500
+department = "Engineering"
+employee2.update_salary(new_salary, department)
+employee3.update_salary(new_salary, department)
+print("\nAfter salary update:")
+print(employee1)
+print(employee2)
+print(employee3)
