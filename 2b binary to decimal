@@ -1,0 +1,12 @@
+def BinaryToDecimal(binary):
+decimal, i = 0, 0
+while(binary != 0):
+dec = binary % 10
+decimal = decimal + dec * (2 ** i) # 
+Use ** for exponentiation
+binary = binary // 10
+i += 1
+print(decimal)
+BinaryToDecimal(100)
+BinaryToDecimal(101)
+BinaryToDecimal(1001)
