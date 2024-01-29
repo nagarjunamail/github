@@ -1,0 +1,25 @@
+from xml.dom import minidom
+
+try:
+    file = minidom.parse("C:\\Users\\lenovo\\Desktop\\sample.xml")
+
+    models = file.getElementsByTagName('model')
+
+    print('model #2 attribute:')
+    print(models[1].getAttribute('name'))
+
+    print('\nAll attributes:')
+    for elem in models:
+        print(elem.getAttribute('name'))
+
+    print('\nmodel #2 data:')
+    print(models[1].firstChild.nodeValue)
+    print(models[1].childNodes[0].nodeValue)
+
+    print('\nAll model data:')
+    for elem in models:
+        print(elem.firstChild.nodeValue)
+except FileNotFoundError:
+    print("File not found.")
+except Exception as e:
+    print(f"An error occurred: {e}")
